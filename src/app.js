@@ -2,9 +2,8 @@ class IndecisionApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "Indecision App",
       subtitle: "Put your life in the hands of a computer.",
-      options: []
+      options: props.options
     }
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
     this.handlePick = this.handlePick.bind(this);
@@ -59,6 +58,10 @@ class IndecisionApp extends React.Component {
   }
 }
 
+IndecisionApp.defaultProps = {
+  options: []
+}
+
 // I am a component
 // class Header extends React.Component {
 //   render() {
@@ -75,10 +78,14 @@ class IndecisionApp extends React.Component {
 const Header = (props) => {
   return (
     <div>
-      <h1>{props.title}</h1>
-      <p>{props.subtitle}</p>
+      <h1>{ props.title }</h1>
+      { props.subtitle && <h2>{ props.subtitle }</h2> }
     </div>
   );
+}
+
+Header.defaultProps = {
+  title: 'Indecision'
 }
 
 // Me too
@@ -205,4 +212,4 @@ class AddOption extends React.Component {
   }
 }
 
-ReactDOM.render(<IndecisionApp />, document.getElementById('app'))
+ReactDOM.render(<IndecisionApp options={["opt 1", "opt 2"]}/>, document.getElementById('app'))
