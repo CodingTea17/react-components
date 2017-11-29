@@ -60,61 +60,110 @@ class IndecisionApp extends React.Component {
 }
 
 // I am a component
-class Header extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>{this.props.title}</h1>
-        <p>{this.props.subtitle}</p>
-      </div>
-    );
-  }
+// class Header extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <h1>{this.props.title}</h1>
+//         <p>{this.props.subtitle}</p>
+//       </div>
+//     );
+//   }
+// }
+
+// Stateless functional component
+const Header = (props) => {
+  return (
+    <div>
+      <h1>{props.title}</h1>
+      <p>{props.subtitle}</p>
+    </div>
+  );
 }
 
 // Me too
-class Action extends React.Component {
-  render() {
-    return (
-      <div>
-        <button
-          disabled={!this.props.hasOptions}
-          onClick={this.props.handlePick}
-        >
-          What Should I Do?
-        </button>
-      </div>
-    );
-  }
+// class Action extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <button
+//           disabled={!this.props.hasOptions}
+//           onClick={this.props.handlePick}
+//         >
+//           What Should I Do?
+//         </button>
+//       </div>
+//     );
+//   }
+// }
+
+// Stateless functional component
+const Action = (props) => {
+  return (
+    <div>
+      <button
+        disabled={!props.hasOptions}
+        onClick={props.handlePick}
+      >
+        What Should I Do?
+      </button>
+    </div>
+  );
 }
 
 // Me three
-class Options extends React.Component {
-  render() {
-    return (
-      <div>
-        <button onClick={this.props.handleDeleteOptions}>Remove All</button>
-        <ol>
-          {
-            // Returns each option into a list element with an Option component recieving a prop of the value of that option
-            this.props.options.map((option) => {
-              return <li key={option}><Option option={option} /></li>
-            })
-          }
-        </ol>
-      </div>
-    );
-  }
+// class Options extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <button onClick={this.props.handleDeleteOptions}>Remove All</button>
+//         <ol>
+//           {
+//             // Returns each option into a list element with an Option component recieving a prop of the value of that option
+//             this.props.options.map((option) => {
+//               return <li key={option}><Option option={option} /></li>
+//             })
+//           }
+//         </ol>
+//       </div>
+//     );
+//   }
+// }
+
+// Stateless functional component
+const Options = (props) => {
+  return (
+    <div>
+      <button onClick={props.handleDeleteOptions}>Remove All</button>
+      <ol>
+        {
+          props.options.map((option) => {
+            return <li key={option}><Option option={option} /></li>
+          })
+        }
+      </ol>
+    </div>
+  );
 }
 
 // Subcompoent of Options
-class Option extends Options {
-  render() {
-    return (
-      <div>
-        <p>{this.props.option}</p>
-      </div>
-    );
-  }
+// class Option extends Options {
+//   render() {
+//     return (
+//       <div>
+//         <p>{this.props.option}</p>
+//       </div>
+//     );
+//   }
+// }
+
+// Stateless functional component
+const Option = (props) => {
+  return (
+    <div>
+      <p>{props.option}</p>
+    </div>
+  );
 }
 
 // I like ice cream
@@ -145,7 +194,7 @@ class AddOption extends React.Component {
     return (
       <div>
         {
-          this.state.error && <p>{this.state.error}</p> 
+          this.state.error && <p>{this.state.error}</p>
         }
         <form onSubmit={this.handleAddOption}>
           <input type="text" name="option"/>
