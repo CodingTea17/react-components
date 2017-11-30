@@ -18,7 +18,7 @@ var IndecisionApp = function (_React$Component) {
 
     _this.state = {
       subtitle: "Put your life in the hands of a computer.",
-      options: props.options
+      options: []
     };
     _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
     _this.handlePick = _this.handlePick.bind(_this);
@@ -114,23 +114,27 @@ var IndecisionApp = function (_React$Component) {
   return IndecisionApp;
 }(React.Component);
 
-IndecisionApp.defaultProps = {
-  options: []
+// Replace by reading from localStorage
+// IndecisionApp.defaultProps = {
+//   options: []
+// }
 
-  // I am a component
-  // class Header extends React.Component {
-  //   render() {
-  //     return (
-  //       <div>
-  //         <h1>{this.props.title}</h1>
-  //         <p>{this.props.subtitle}</p>
-  //       </div>
-  //     );
-  //   }
-  // }
+// I am a component
+// class Header extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <h1>{this.props.title}</h1>
+//         <p>{this.props.subtitle}</p>
+//       </div>
+//     );
+//   }
+// }
 
-  // Stateless functional component
-};var Header = function Header(props) {
+// Stateless functional component
+
+
+var Header = function Header(props) {
   return React.createElement(
     'div',
     null,

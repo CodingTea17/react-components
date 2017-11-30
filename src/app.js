@@ -3,7 +3,7 @@ class IndecisionApp extends React.Component {
     super(props);
     this.state = {
       subtitle: "Put your life in the hands of a computer.",
-      options: props.options
+      options: []
     }
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
     this.handlePick = this.handlePick.bind(this);
@@ -77,9 +77,10 @@ class IndecisionApp extends React.Component {
   }
 }
 
-IndecisionApp.defaultProps = {
-  options: []
-}
+// Replace by reading from localStorage
+// IndecisionApp.defaultProps = {
+//   options: []
+// }
 
 // I am a component
 // class Header extends React.Component {
